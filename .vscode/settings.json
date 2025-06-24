@@ -1,0 +1,13 @@
+{
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+
+    "[cpp]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "xaver.clang-format",
+    },
+    "[c]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "xaver.clang-format",
+    }
+}
