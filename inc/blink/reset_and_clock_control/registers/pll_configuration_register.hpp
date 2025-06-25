@@ -4,6 +4,14 @@
 
 namespace reset_and_clock_control
 {
+    namespace enum_mask
+    {
+        enum type : u32
+        {
+
+        };
+    };
+
     struct pll_configuration_register
     {
     private:

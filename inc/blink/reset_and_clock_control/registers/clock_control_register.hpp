@@ -8,14 +8,14 @@
 #include <blink/utility/mask/shift_left.hpp>
 #include <blink/utility/mask/shift_right.hpp>
 
+#include "enums.hpp"
+
+
 namespace reset_and_clock_control
 {
     using utility::get_bits;
     using utility::set_bits;
-    using utility::u32_count_trailing_zeros_v;
     using utility::u32_mask_v;
-    using utility::u32_shift_left_v;
-    using utility::u32_shift_right_v;
 
     namespace enum_mask
     {
@@ -41,53 +41,6 @@ namespace reset_and_clock_control
         };
 
     }; // namespace enum_mask
-
-    namespace enum_enable
-    {
-        enum type : u32
-        {
-            OFF,
-            ON,
-        };
-
-        constexpr enum_enable::type operator&(u32 a, enum_enable::type b)
-        {
-            return static_cast<enum_enable::type>(a & static_cast<u32>(b));
-        }
-
-        constexpr enum_enable::type operator>>(enum_enable::type a, size_t b)
-        {
-            return static_cast<enum_enable::type>(static_cast<u32>(a) >> b);
-        }
-
-    } // namespace enum_enable
-
-    namespace enum_ready
-    {
-        enum type : u32
-        {
-            NOT_READY,
-            READY,
-        };
-    }
-
-    namespace enum_bypass
-    {
-        enum type : u32
-        {
-            NOT_BYPASSED,
-            BYPASSED,
-        };
-    }
-
-    namespace enum_lock
-    {
-        enum type : u32
-        {
-            UNLOCKED,
-            LOCKED,
-        };
-    }
 
     struct clock_control_register
     {
