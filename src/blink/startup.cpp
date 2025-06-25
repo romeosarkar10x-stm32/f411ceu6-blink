@@ -1,6 +1,6 @@
 #include <stdint.h>
 
-#include "main.hpp"
+#include <blink/main.hpp>
 
 #define SRAM_START 0x20000000
 #define SRAM_SIZE  0x00020000 // 128KB

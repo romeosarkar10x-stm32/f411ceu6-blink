@@ -1,6 +1,6 @@
 #pragma once
 
-#include "type.hpp"
+#include <blink/types.hpp>
 
 namespace utility
 {
@@ -36,30 +36,31 @@ namespace utility
 
     template <size_t _StartBit, size_t _EndBit = _StartBit> constexpr u8 u8_mask_v = u8_mask<_StartBit, _EndBit>::value;
 
-    template <typename T> struct corresponding_type
+    template <typename T> struct corresponding_mask_type
     {};
 
-    template <> struct corresponding_type<u8>
+    template <> struct corresponding_mask_type<u8>
     {
         template <size_t _StartBit, size_t _EndBit> using type = u8_mask<_StartBit, _EndBit>;
     };
 
-    template <> struct corresponding_type<u16>
+    template <> struct corresponding_mask_type<u16>
     {
         template <size_t _StartBit, size_t _EndBit> using type = u16_mask<_StartBit, _EndBit>;
     };
 
-    template <> struct corresponding_type<u32>
+    template <> struct corresponding_mask_type<u32>
     {
         template <size_t _StartBit, size_t _EndBit> using type = u32_mask<_StartBit, _EndBit>;
     };
 
-    template <typename T> using corresponding_type_t = corresponding_type<T>;
+    template <typename T> using corresponding_mask_type_t = corresponding_mask_type<T>;
 
     template <typename T, size_t _StartBit, size_t _EndBit = _StartBit>
-    struct mask : corresponding_type<T>::template type<_StartBit, _EndBit>
+    struct mask : corresponding_mask_type<T>::template type<_StartBit, _EndBit>
     {};
 
     template <typename T, size_t _StartBit, size_t _EndBit = _StartBit>
     constexpr T mask_v = mask<T, _StartBit, _EndBit>::value;
+
 } // namespace utility

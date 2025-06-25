@@ -1,8 +1,12 @@
 #include <cstdint>
 
+#include ""
+#include "registers/clock_control_register.hpp"
+
+
 namespace reset_and_clock_control
 {
-    struct rcc_registers
+    struct reset_and_clock_control_registers
     {
         uint32_t clock_control;
         uint32_t pll_configuration;

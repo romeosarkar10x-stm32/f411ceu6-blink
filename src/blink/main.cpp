@@ -1,4 +1,4 @@
-#include "main.hpp"
+#include <blink/main.hpp>
 
 [[noreturn]] int main()
 {

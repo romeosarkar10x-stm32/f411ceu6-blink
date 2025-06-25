@@ -1,15 +1,18 @@
-#include <cstdint>
+#pragma once
 
-#include "utility/mask.hpp"
+#include <blink/types.hpp>
+#include <blink/utility/mask/mask.hpp>
+#include <blink/utility/mask/shift_left.hpp>
 
 namespace reset_and_clock_control
 {
+    using utility::u32_mask_v;
+    using utility::u32_shift_left_v;
+
     namespace enum_mask
     {
 
-        using utility::u32_mask_v;
-
-        enum type : uint32_t
+        enum type : u32
         {
             INTERNAL_HIGH_SPEED_CLOCK_ENABLE = u32_mask_v<0>,
             INTERNAL_HIGH_SPEED_CLOCK_READY  = u32_mask_v<1>,
@@ -34,7 +37,7 @@ namespace reset_and_clock_control
 
     namespace enum_enable
     {
-        enum type : uint32_t
+        enum type : u32
         {
             OFF,
             ON,
@@ -43,7 +46,7 @@ namespace reset_and_clock_control
 
     namespace enum_ready
     {
-        enum type : uint32_t
+        enum type : u32
         {
             NOT_READY,
             READY,
@@ -52,7 +55,7 @@ namespace reset_and_clock_control
 
     namespace enum_lock
     {
-        enum type : uint32_t
+        enum type : u32
         {
             UNLOCKED,
             LOCKED,
@@ -76,8 +79,10 @@ namespace reset_and_clock_control
             return static_cast<enum_enable::type>(m_value & enum_mask::INTERNAL_HIGH_SPEED_CLOCK_READY);
         }
 
+        constexpr operator uint32_t() const noexcept { return m_value; }
+
     private:
-        uint32_t m_value;
+        u32 m_value;
     };
 
 } // namespace reset_and_clock_control
