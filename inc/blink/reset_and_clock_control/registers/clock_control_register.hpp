@@ -71,6 +71,15 @@ namespace reset_and_clock_control
         };
     }
 
+    namespace enum_bypass
+    {
+        enum type : u32
+        {
+            NOT_BYPASSED,
+            BYPASSED,
+        };
+    }
+
     namespace enum_lock
     {
         enum type : u32
@@ -82,6 +91,8 @@ namespace reset_and_clock_control
 
     struct clock_control_register
     {
+        constexpr clock_control_register() {}
+
         constexpr enum_enable::type get_internal_high_speed_clock_enable() const noexcept
         {
             /*
@@ -108,13 +119,75 @@ namespace reset_and_clock_control
 
         constexpr enum_ready::type get_internal_high_speed_clock_ready() const noexcept
         {
-            return static_cast<enum_ready::type>(m_value & enum_mask::INTERNAL_HIGH_SPEED_CLOCK_READY);
+            return static_cast<enum_ready::type>(get_bits<enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE>(m_value));
+        }
+
+        constexpr enum_enable::type get_high_speed_external_clock_enable() const noexcept
+        {
+            return static_cast<enum_enable::type>(get_bits<enum_mask::HIGH_SPEED_EXTERNAL_CLOCK_ENABLE>(m_value));
+        }
+
+        constexpr void set_high_speed_external_clock_enable(enum_enable::type value) const noexcept
+        {
+            set_bits<enum_mask::HIGH_SPEED_EXTERNAL_CLOCK_ENABLE>(m_value, value);
+        }
+
+        constexpr enum_ready::type get_high_speed_external_clock_ready() const noexcept
+        {
+            return static_cast<enum_ready::type>(get_bits<enum_mask::HIGH_SPEED_EXTERNAL_CLOCK_READY>(m_value));
+        }
+
+        constexpr enum_bypass::type get_high_speed_external_clock_bypass() const noexcept
+        {
+            return static_cast<enum_bypass::type>(get_bits<enum_mask::HIGH_SPEED_EXTERNAL_CLOCK_BYPASS>(m_value));
+        }
+
+        constexpr void set_high_speed_external_clock_bypass(enum_bypass::type value) noexcept
+        {
+            set_bits<enum_mask::HIGH_SPEED_EXTERNAL_CLOCK_BYPASS>(m_value, value);
+        }
+
+        constexpr enum_enable::type get_clock_security_system_enable() const noexcept
+        {
+            return static_cast<enum_enable::type>(get_bits<enum_mask::CLOCK_SECURITY_SYSTEM_ENABLE>(m_value));
+        }
+
+        constexpr void set_clock_security_system_enable(enum_enable::type value) noexcept
+        {
+            set_bits<enum_mask::CLOCK_SECURITY_SYSTEM_ENABLE>(m_value, value);
+        }
+
+        constexpr enum_enable::type get_pll_enable()
+        {
+            return static_cast<enum_enable::type>(get_bits<enum_mask::PLL_ENABLE>(m_value));
+        }
+
+        constexpr void set_pll_enable(enum_enable::type value) { set_bits<enum_mask::PLL_ENABLE>(m_value, value); }
+
+        constexpr enum_ready::type get_pll_ready() const noexcept
+        {
+            return static_cast<enum_ready::type>(get_bits<enum_mask::PLL_READY>(m_value));
+        }
+
+        constexpr enum_enable::type get_pll_i2s_enable() const noexcept
+        {
+            return static_cast<enum_enable::type>(get_bits<enum_mask::PLL_I2S_ENABLE>(m_value));
+        }
+
+        constexpr void set_pll_i2s_enable(enum_enable::type value) noexcept
+        {
+            set_bits<enum_mask::PLL_READY>(m_value, value);
+        }
+
+        constexpr enum_ready::type get_pll_i2s_ready() const noexcept
+        {
+            return static_cast<enum_ready::type>(get_bits<enum_mask::PLL_I2S_READY>(m_value));
         }
 
         constexpr operator uint32_t() const noexcept { return m_value; }
 
     private:
-        u32 m_value;
+        u32 m_value = 0u;
     };
 
 } // namespace reset_and_clock_control
