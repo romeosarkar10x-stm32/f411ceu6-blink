@@ -1,17 +1,24 @@
 #pragma once
 
 #include <blink/types.hpp>
+#include <blink/utility/mask/count_trailing_zeros.hpp>
+#include <blink/utility/mask/get_bits.hpp>
 #include <blink/utility/mask/mask.hpp>
+#include <blink/utility/mask/set_bits.hpp>
 #include <blink/utility/mask/shift_left.hpp>
+#include <blink/utility/mask/shift_right.hpp>
 
 namespace reset_and_clock_control
 {
+    using utility::get_bits;
+    using utility::set_bits;
+    using utility::u32_count_trailing_zeros_v;
     using utility::u32_mask_v;
     using utility::u32_shift_left_v;
+    using utility::u32_shift_right_v;
 
     namespace enum_mask
     {
-
         enum type : u32
         {
             INTERNAL_HIGH_SPEED_CLOCK_ENABLE = u32_mask_v<0>,
@@ -42,7 +49,18 @@ namespace reset_and_clock_control
             OFF,
             ON,
         };
-    }
+
+        constexpr enum_enable::type operator&(u32 a, enum_enable::type b)
+        {
+            return static_cast<enum_enable::type>(a & static_cast<u32>(b));
+        }
+
+        constexpr enum_enable::type operator>>(enum_enable::type a, size_t b)
+        {
+            return static_cast<enum_enable::type>(static_cast<u32>(a) >> b);
+        }
+
+    } // namespace enum_enable
 
     namespace enum_ready
     {
@@ -64,19 +82,33 @@ namespace reset_and_clock_control
 
     struct clock_control_register
     {
-        constexpr enum_ready::type get_internal_high_speed_clock_enable() const noexcept
+        constexpr enum_enable::type get_internal_high_speed_clock_enable() const noexcept
         {
-            return static_cast<enum_ready::type>(m_value & enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE);
+            /*
+            return static_cast<
+                enum_ready::
+                    type>((m_value & enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE) >>
+            u32_count_trailing_zeros_v<enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE>);
+            */
+
+            // return static_cast<enum_enable::type>(U32_GET_BITS(m_value,
+            // enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE));
+            return static_cast<enum_enable::type>(get_bits<enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE>(m_value));
+            // return m_value & enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE;
         }
 
         constexpr void set_internal_high_speed_clock_enable(enum_enable::type value) noexcept
         {
+            /*
             m_value = ((m_value & ~enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE) & value);
+            */
+            set_bits<enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE>(m_value, value);
+            // U32_SET_BITS(m_value, value, enum_mask::INTERNAL_HIGH_SPEED_CLOCK_ENABLE);
         }
 
-        constexpr enum_enable::type get_internal_high_speed_clock_ready() const noexcept
+        constexpr enum_ready::type get_internal_high_speed_clock_ready() const noexcept
         {
-            return static_cast<enum_enable::type>(m_value & enum_mask::INTERNAL_HIGH_SPEED_CLOCK_READY);
+            return static_cast<enum_ready::type>(m_value & enum_mask::INTERNAL_HIGH_SPEED_CLOCK_READY);
         }
 
         constexpr operator uint32_t() const noexcept { return m_value; }
