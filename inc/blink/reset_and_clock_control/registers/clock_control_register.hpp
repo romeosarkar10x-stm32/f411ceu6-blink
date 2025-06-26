@@ -10,7 +10,6 @@
 
 #include "enums.hpp"
 
-
 namespace reset_and_clock_control
 {
     using utility::get_bits;
