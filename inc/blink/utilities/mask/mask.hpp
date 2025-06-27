@@ -2,7 +2,7 @@
 
 #include <blink/types.hpp>
 
-namespace utility
+namespace utilities
 {
     template <size_t _StartBit, size_t _EndBit = _StartBit> struct u32_mask
     {
@@ -63,4 +63,4 @@ namespace utility
     template <typename T, size_t _StartBit, size_t _EndBit = _StartBit>
     constexpr T mask_v = mask<T, _StartBit, _EndBit>::value;
 
-} // namespace utility
+} // namespace utilities

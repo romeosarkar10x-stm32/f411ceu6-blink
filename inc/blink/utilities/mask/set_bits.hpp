@@ -6,7 +6,7 @@
 
 #define U32_SET_BITS(lvalue, rvalue, mask) lvalue = ((lvalue & (~mask)) & rvalue)
 
-namespace utility
+namespace utilities
 {
     template <auto _Mask, typename T, typename U>
         requires std::is_convertible_v<decltype(_Mask), T> && std::is_convertible_v<U, T>
@@ -14,4 +14,4 @@ namespace utility
     {
         l_value = (l_value & (~_Mask)) & (static_cast<T>(r_value) << count_trailing_zeros_v<T, _Mask>);
     }
-} // namespace utility
+} // namespace utilities

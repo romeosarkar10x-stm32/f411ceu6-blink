@@ -1,4 +1,5 @@
 #include <blink/main.hpp>
+#include <blink/reset_and_clock_control/reset_and_clock_control.hpp>
 
 [[noreturn]] int main()
 {

@@ -2,7 +2,7 @@
 
 #include <blink/types.hpp>
 
-namespace utility
+namespace utilities
 {
     template <u32 _Value, size_t _Bit = 0u> struct u32_count_leading_zeros
     {
@@ -23,4 +23,4 @@ namespace utility
 
     template <u32 _Value> constexpr size_t u32_count_leading_zeros_v = u32_count_leading_zeros<_Value>::value;
 
-} // namespace utility
+} // namespace utilities

@@ -6,7 +6,7 @@
 
 #define U32_GET_BITS(value, mask) ((value & mask) >> u32_count_trailing_zeros_v<mask>)
 
-namespace utility
+namespace utilities
 {
 
     template <auto _Mask, typename T>
@@ -15,4 +15,4 @@ namespace utility
     {
         return ((value & static_cast<T>(_Mask)) >> count_trailing_zeros_v<T, _Mask>);
     }
-} // namespace utility
+} // namespace utilities

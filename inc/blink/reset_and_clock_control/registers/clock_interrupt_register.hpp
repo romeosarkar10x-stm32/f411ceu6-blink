@@ -1,20 +1,18 @@
 #pragma once
 
 #include <blink/types.hpp>
-#include <blink/utility/mask/count_trailing_zeros.hpp>
-#include <blink/utility/mask/get_bits.hpp>
-#include <blink/utility/mask/mask.hpp>
-#include <blink/utility/mask/set_bits.hpp>
-#include <blink/utility/mask/shift_left.hpp>
-#include <blink/utility/mask/shift_right.hpp>
-
-#include "enums.hpp"
+#include <blink/utilities/mask/count_trailing_zeros.hpp>
+#include <blink/utilities/mask/get_bits.hpp>
+#include <blink/utilities/mask/mask.hpp>
+#include <blink/utilities/mask/set_bits.hpp>
+#include <blink/utilities/mask/shift_left.hpp>
+#include <blink/utilities/mask/shift_right.hpp>
 
 namespace reset_and_clock_control
 {
-    using utility::get_bits;
-    using utility::set_bits;
-    using utility::u32_mask_v;
+    using utilities::get_bits;
+    using utilities::set_bits;
+    using utilities::u32_mask_v;
 
     namespace enum_mask
     {

@@ -2,7 +2,7 @@
 
 #include <blink/types.hpp>
 
-namespace utility
+namespace utilities
 {
     /* u32 */
     template <u32 _Value, size_t _Bit = 0u> struct u32_count_trailing_zeros
@@ -73,4 +73,4 @@ namespace utility
 
     template <typename T, T _Value> constexpr size_t count_trailing_zeros_v = count_trailing_zeros<T, _Value>::value;
 
-} // namespace utility
+} // namespace utilities

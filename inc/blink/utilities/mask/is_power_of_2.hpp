@@ -4,7 +4,7 @@
 
 #include <blink/types.hpp>
 
-namespace utility
+namespace utilities
 {
     template <u32 _Value> struct is_power_of_2 : std::bool_constant<false>
     {};
@@ -21,4 +21,4 @@ namespace utility
     {};
 
     template <u32 _Value> static constexpr bool is_power_of_2_v = is_power_of_2<_Value>::value;
-} // namespace utility
+} // namespace utilities

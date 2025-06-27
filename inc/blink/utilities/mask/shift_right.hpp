@@ -4,8 +4,7 @@
 
 #include "count_trailing_zeros.hpp"
 
-
-namespace utility
+namespace utilities
 {
     template <u32 _Value, u32 _Mask> struct u32_shift_right
     {
@@ -13,4 +12,4 @@ namespace utility
     };
 
     template <u32 _Value, u32 _Mask> constexpr u32 u32_shift_right_v = u32_shift_right<_Value, _Mask>::value;
-} // namespace utility
+} // namespace utilities

@@ -1,13 +1,13 @@
 #pragma once
 
 #include <blink/types.hpp>
-#include <blink/utility/mask/mask.hpp>
-#include <blink/utility/mask/shift_left.hpp>
+#include <blink/utilities/mask/mask.hpp>
+#include <blink/utilities/mask/shift_left.hpp>
 
 namespace reset_and_clock_control
 {
-    using utility::u32_mask_v;
-    using utility::u32_shift_left_v;
+    using utilities::u32_mask_v;
+    using utilities::u32_shift_left_v;
 
     namespace enum_mask
     {
