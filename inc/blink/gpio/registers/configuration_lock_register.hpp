@@ -1,28 +1,33 @@
 #pragma once
 
-#include <blink/gpio/pin.hpp>
 #include <blink/types.hpp>
 #include <blink/utilities/mask/get_bits.hpp>
 #include <blink/utilities/mask/set_bits.hpp>
 
-#include "input_data_register.hpp"
+#include "pin.hpp"
+
 
 namespace gpio
 {
-    namespace enum_lock_status
+    namespace registers
     {
-        enum type : u32
+        namespace enum_lock_status
         {
-
+            enum type : u32
+            {
+                UNLOCKED,
+                LOCKED,
+            };
         };
-    };
-    struct configuration_lock_register
-    {
-        constexpr configuration_lock_register() {}
 
-        void get_lock_status();
+        struct configuration_lock_register
+        {
+            constexpr configuration_lock_register() {}
 
-    private:
-        u32 m_value;
-    };
+            void get_lock_status();
+
+        private:
+            u32 m_value;
+        };
+    } // namespace registers
 } // namespace gpio

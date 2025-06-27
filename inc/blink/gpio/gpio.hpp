@@ -3,10 +3,12 @@
 #include <blink/memory_map.hpp>
 #include <blink/types.hpp>
 
-#include "registers/registers.hpp"
+#include "registers.hpp"
 
 namespace gpio
 {
+    using namespace registers;
+
     struct gpio
     {
         constexpr gpio() noexcept {}
