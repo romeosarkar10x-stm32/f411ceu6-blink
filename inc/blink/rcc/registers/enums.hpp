@@ -2,7 +2,7 @@
 
 #include <blink/types.hpp>
 
-namespace reset_and_clock_control
+namespace rcc
 {
     namespace enum_enable
     {
@@ -51,4 +51,4 @@ namespace reset_and_clock_control
         };
     }
 
-} // namespace reset_and_clock_control
+} // namespace rcc

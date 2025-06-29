@@ -3,7 +3,7 @@
 #include <blink/memory_map.hpp>
 #include <blink/types.hpp>
 
-#include "registers.hpp"
+#include "registers/registers.hpp"
 
 namespace gpio
 {

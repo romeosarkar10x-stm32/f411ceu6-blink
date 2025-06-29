@@ -10,7 +10,7 @@
 
 #include "enums.hpp"
 
-namespace reset_and_clock_control
+namespace rcc
 {
     using utilities::get_bits;
     using utilities::set_bits;
@@ -41,4 +41,4 @@ namespace reset_and_clock_control
         u32 m_value = 0u;
     };
 
-} // namespace reset_and_clock_control
+} // namespace rcc
