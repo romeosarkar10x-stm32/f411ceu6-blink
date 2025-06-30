@@ -16,9 +16,9 @@ namespace rcc
     using utilities::set_bits;
     using utilities::u32_mask_v;
 
-    namespace enum_mask
+    struct backup_domain_control_register
     {
-        enum type : u32
+        enum enum_mask : u32
         {
             EXTERNAL_LOW_SPEED_OSCILLATOR_ENABLE = u32_mask_v<0>, // Bit 0: LSEON
             EXTERNAL_LOW_SPEED_OSCILLATOR_READY  = u32_mask_v<1>, // Bit 1: LSERDY
@@ -29,12 +29,9 @@ namespace rcc
             // Bits 10:14 Reserved
             RTC_CLOCK_ENABLE             = u32_mask_v<15>, // Bit 15: RTCEN
             BACKUP_DOMAIN_SOFTWARE_RESET = u32_mask_v<16>, // Bit 16: BDRST
-            // Bits 17:31 Reserved
+                                                           // Bits 17:31 Reserved
         };
-    };
 
-    struct backup_domain_control_register
-    {
         constexpr backup_domain_control_register() {}
 
     private:

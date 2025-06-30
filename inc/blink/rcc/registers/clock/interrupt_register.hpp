@@ -16,9 +16,9 @@ namespace rcc
         using utilities::set_bits;
         using utilities::u32_mask_v;
 
-        namespace enum_mask
+        struct clock_interrupt_register
         {
-            enum type : u32
+            enum enum_mask : u32
             {
                 LSI_READY_INTERRUPT_FLAG    = u32_mask_v<0>, // Bit 0: LSIRDYF
                 LSE_READY_INTERRUPT_FLAG    = u32_mask_v<1>, // Bit 1: LSERDYF
@@ -43,12 +43,8 @@ namespace rcc
                 PLLI2S_READY_INTERRUPT_CLEAR = u32_mask_v<21>, // Bit 21: PLLI2SRDYC
                 // Bit 22 Reserved
                 CLOCK_SECURITY_SYSTEM_INTERRUPT_CLEAR = u32_mask_v<23>, // Bit 23: CSSC
-                // Bits 24:31 Reserved
+                                                                        // Bits 24:31 Reserved
             };
-        };
-
-        struct clock_interrupt_register
-        {
             constexpr clock_interrupt_register() {}
 
         private:

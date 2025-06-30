@@ -1,9 +1,11 @@
 #pragma once
 
+#include <blink/rcc/registers/enums.hpp>
 #include <blink/types.hpp>
 #include <blink/utilities/mask/get_bits.hpp>
 #include <blink/utilities/mask/mask.hpp>
 #include <blink/utilities/mask/set_bits.hpp>
+
 
 namespace rcc
 {
@@ -13,9 +15,9 @@ namespace rcc
         using utilities::set_bits;
         using utilities::u32_mask_v;
 
-        namespace enum_mask
+        struct clock_control_register
         {
-            enum type : u32
+            enum enum_mask : u32
             {
                 INTERNAL_HIGH_SPEED_CLOCK_ENABLE = u32_mask_v<0>,
                 INTERNAL_HIGH_SPEED_CLOCK_READY  = u32_mask_v<1>,
@@ -34,12 +36,9 @@ namespace rcc
 
                 PLL_I2S_ENABLE = u32_mask_v<26>,
                 PLL_I2S_READY  = u32_mask_v<27>,
-            };
 
-        }; // namespace enum_mask
+            }; // namespace enum_mask
 
-        struct clock_control_register
-        {
             constexpr clock_control_register() {}
 
             constexpr enum_enable::type get_internal_high_speed_clock_enable() const noexcept

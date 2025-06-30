@@ -16,9 +16,9 @@ namespace rcc
         using utilities::set_bits;
         using utilities::u32_mask_v;
 
-        namespace enum_mask
+        struct apb1_peripheral_clock_enable_register
         {
-            enum type : u32
+            enum enum_mask : u32
             {
                 TIM2_CLOCK_ENABLE = u32_mask_v<0>, // Bit 0: TIM2EN
                 TIM3_CLOCK_ENABLE = u32_mask_v<1>, // Bit 1: TIM3EN
@@ -37,12 +37,9 @@ namespace rcc
                 I2C3_CLOCK_ENABLE = u32_mask_v<23>, // Bit 23: I2C3EN
                 // Bits 24:27 Reserved
                 POWER_INTERFACE_CLOCK_ENABLE = u32_mask_v<28>, // Bit 28: PWREN
-                // Bits 29:31 Reserved
+                                                               // Bits 29:31 Reserved
             };
-        };
 
-        struct apb1_peripheral_clock_enable_register
-        {
             constexpr apb1_peripheral_clock_enable_register() {}
 
             constexpr u32 get_tim2_clock_enable() const noexcept

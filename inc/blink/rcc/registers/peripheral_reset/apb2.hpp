@@ -16,9 +16,9 @@ namespace rcc
         using utilities::set_bits;
         using utilities::u32_mask_v;
 
-        namespace enum_mask
+        struct apb2_peripheral_reset_register
         {
-            enum type : u32
+            enum enum_mask : u32
             {
                 TIM1_RESET = u32_mask_v<0>, // Bit 0: TIM1RST
                 // Bits 1:3 Reserved
@@ -37,12 +37,9 @@ namespace rcc
                 TIM11_RESET = u32_mask_v<18>, // Bit 18: TIM11RST
                 // Bit 19 Reserved
                 SPI5_RESET = u32_mask_v<20>, // Bit 20: SPI5RST
-                // Bits 21:31 Reserved
+                                             // Bits 21:31 Reserved
             };
-        };
 
-        struct apb2_peripheral_reset_register
-        {
             constexpr apb2_peripheral_reset_register() {}
 
         private:

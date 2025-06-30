@@ -16,9 +16,9 @@ namespace rcc
         using utilities::set_bits;
         using utilities::u32_mask_v;
 
-        namespace enum_mask
+        struct clock_control_and_status_register
         {
-            enum type : u32
+            enum enum_mask : u32
             {
                 INTERNAL_LOW_SPEED_OSCILLATOR_ENABLE = u32_mask_v<0>, // Bit 0: LSION
                 INTERNAL_LOW_SPEED_OSCILLATOR_READY  = u32_mask_v<1>, // Bit 1: LSIRDY
@@ -32,10 +32,6 @@ namespace rcc
                 WINDOW_WATCHDOG_RESET_FLAG      = u32_mask_v<30>, // Bit 30: WWDGRSTF
                 LOW_POWER_RESET_FLAG            = u32_mask_v<31>, // Bit 31: LPWRRSTF
             };
-        };
-
-        struct clock_control_and_status_register
-        {
             constexpr clock_control_and_status_register() {}
 
         private:

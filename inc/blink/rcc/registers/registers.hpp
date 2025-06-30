@@ -3,6 +3,7 @@
 #include "clock/configuration_register.hpp"
 #include "clock/control_and_status_register.hpp"
 #include "clock/control_register.hpp"
+#include "clock/dedicated_clocks_configuration_register.hpp"
 #include "clock/interrupt_register.hpp"
 #include "peripheral_clock_enable/ahb1.hpp"
 #include "peripheral_clock_enable/ahb2.hpp"
@@ -17,4 +18,3 @@
 #include "peripheral_reset/apb1.hpp"
 #include "peripheral_reset/apb2.hpp"
 #include "pll/configuration_register.hpp"
-

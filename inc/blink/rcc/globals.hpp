@@ -1,6 +1,6 @@
 #pragma once
 
-#include "reset_and_clock_control.hpp"
+#include "rcc.hpp"
 
 namespace rcc
 {}

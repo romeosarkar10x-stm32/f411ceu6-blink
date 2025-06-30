@@ -16,18 +16,14 @@ namespace rcc
         using utilities::set_bits;
         using utilities::u32_mask_v;
 
-        namespace enum_mask
+        struct ahb2_peripheral_reset_register
         {
-            enum type : u32
+            enum enum_mask : u32
             {
                 // Bits 0:6 Reserved
                 USB_OTG_FS_RESET = u32_mask_v<7>, // Bit 7: OTGFSRST
                                                   // Bits 8:31 Reserved
             };
-        };
-
-        struct ahb2_peripheral_reset_register
-        {
             constexpr ahb2_peripheral_reset_register() {}
 
         private:

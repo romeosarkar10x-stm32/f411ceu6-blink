@@ -9,9 +9,9 @@ namespace rcc
     {
         using utilities::u32_mask_v;
 
-        namespace enum_mask
+        struct pll_configuration_register
         {
-            enum type : u32
+            enum enum_mask : u32
             {
                 PLL_M      = u32_mask_v<0u, 5u>,
                 PLL_N      = u32_mask_v<6u, 14u>,
@@ -19,10 +19,7 @@ namespace rcc
                 PLL_SOURCE = u32_mask_v<22u>,
                 PLL_Q      = u32_mask_v<24u, 27u>,
             };
-        };
 
-        struct pll_configuration_register
-        {
             constexpr pll_configuration_register() {}
 
         private:
