@@ -1,5 +1,6 @@
 #pragma once
 
+#include <blink/rcc/registers/enums.hpp>
 #include <blink/types.hpp>
 #include <blink/utilities/mask/count_trailing_zeros.hpp>
 #include <blink/utilities/mask/get_bits.hpp>
@@ -33,45 +34,46 @@ namespace rcc
 
             constexpr ahb1_peripheral_clock_enable_register() {}
 
-            constexpr u32 get_gpio_a_clock_enable() const noexcept
+            constexpr enum_enable_t get_gpio_a_clock_enable() const noexcept
             {
-                return get_bits<enum_mask::GPIO_A_CLOCK_ENABLE>(m_value);
+                return static_cast<enum_enable_t>(get_bits<enum_mask::GPIO_A_CLOCK_ENABLE>(m_value));
             }
-            constexpr void set_gpio_a_clock_enable(u32 value) noexcept
+            constexpr void set_gpio_a_clock_enable(enum_enable_t value) noexcept
             {
                 set_bits<enum_mask::GPIO_A_CLOCK_ENABLE>(m_value, value);
             }
 
-            constexpr u32 get_gpio_b_clock_enable() const noexcept
+            constexpr enum_enable_t get_gpio_b_clock_enable() const noexcept
             {
-                return get_bits<enum_mask::GPIO_B_CLOCK_ENABLE>(m_value);
+                return static_cast<enum_enable_t>(get_bits<enum_mask::GPIO_B_CLOCK_ENABLE>(m_value));
             }
-            constexpr void set_gpio_b_clock_enable(u32 value) noexcept
+            constexpr void set_gpio_b_clock_enable(enum_enable_t value) noexcept
             {
                 set_bits<enum_mask::GPIO_B_CLOCK_ENABLE>(m_value, value);
             }
 
-            constexpr u32 get_gpio_c_clock_enable() const noexcept
+            constexpr enum_enable_t get_gpio_c_clock_enable() const noexcept
             {
-                return get_bits<enum_mask::GPIO_C_CLOCK_ENABLE>(m_value);
+                return static_cast<enum_enable_t>(get_bits<enum_mask::GPIO_C_CLOCK_ENABLE>(m_value));
             }
-            constexpr void set_gpio_c_clock_enable(u32 value) noexcept
+            constexpr void set_gpio_c_clock_enable(enum_enable_t value) noexcept
             {
                 set_bits<enum_mask::GPIO_C_CLOCK_ENABLE>(m_value, value);
+                // ~enum_mask::GPIO_C_CLOCK_ENABLE;
             }
 
-            constexpr u32 get_gpio_d_clock_enable() const noexcept
+            constexpr enum_enable_t get_gpio_d_clock_enable() const noexcept
             {
-                return get_bits<enum_mask::GPIO_D_CLOCK_ENABLE>(m_value);
+                return static_cast<enum_enable_t>(get_bits<enum_mask::GPIO_D_CLOCK_ENABLE>(m_value));
             }
-            constexpr void set_gpio_d_clock_enable(u32 value) noexcept
+            constexpr void set_gpio_d_clock_enable(enum_enable_t value) noexcept
             {
                 set_bits<enum_mask::GPIO_D_CLOCK_ENABLE>(m_value, value);
             }
 
-            constexpr u32 get_gpio_e_clock_enable() const noexcept
+            constexpr enum_enable_t get_gpio_e_clock_enable() const noexcept
             {
-                return get_bits<enum_mask::GPIO_E_CLOCK_ENABLE>(m_value);
+                return static_cast<enum_enable_t>(get_bits<enum_mask::GPIO_E_CLOCK_ENABLE>(m_value));
             }
             constexpr void set_gpio_e_clock_enable(u32 value) noexcept
             {

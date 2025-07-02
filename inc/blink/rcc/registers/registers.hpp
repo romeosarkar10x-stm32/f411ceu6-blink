@@ -1,3 +1,4 @@
+#pragma once
 
 #include "backup_domain_control_register.hpp"
 #include "clock/configuration_register.hpp"

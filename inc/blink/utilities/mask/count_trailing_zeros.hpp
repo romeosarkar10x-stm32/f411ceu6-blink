@@ -1,6 +1,9 @@
 #pragma once
 
+#include <type_traits>
+
 #include <blink/types.hpp>
+
 
 namespace utilities
 {
@@ -62,11 +65,12 @@ namespace utilities
 
     template <> struct corresponding_count_trailing_zeros_type<u8>
     {
-        template <u16 _Value> using type = u8_count_trailing_zeros<_Value>;
+        template <u8 _Value> using type = u8_count_trailing_zeros<_Value>;
     };
 
     template <typename T>
-    using corresponding_count_trailing_zeros_type_t = corresponding_count_trailing_zeros_type<T>::type;
+    using corresponding_count_trailing_zeros_type_t =
+        corresponding_count_trailing_zeros_type<std::remove_cvref_t<T>>::type;
 
     template <typename T, T _Value>
     using count_trailing_zeros = corresponding_count_trailing_zeros_type<T>::template type<_Value>;

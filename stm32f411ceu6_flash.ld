@@ -1,17 +1,22 @@
 MEMORY {
-    FLASH (RX) : ORIGIN = 0, LENGTH = 512K
+    FLASH (RX) : ORIGIN = 0x08000000, LENGTH = 512K
     SRAM (W) : ORIGIN = 0x20000000, LENGTH = 128K
 }
 
 SECTIONS {
-    .vector_table : ALIGN(4) {
+    .vector_table : ALIGN(0x4) {
         KEEP(*(.vector_table))
     } >FLASH
 
-    .text : {
+    .text : ALIGN(0x4) {
         *(.text)
         *(.text.*)
-    }
+    } >FLASH
+
+    .rodata : ALIGN(0x4) {
+        *(.rodata)
+        *(.rodata.*)
+    } >FLASH
 
     _s_data_flash = LOADADDR(.data);
 

@@ -86,5 +86,4 @@ namespace gpio
         configuration_lock_register m_configuration_lock_register_obj;
         alternate_function_register m_alternate_function_register_obj;
     };
-
 } // namespace gpio

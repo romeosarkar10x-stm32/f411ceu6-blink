@@ -6,10 +6,10 @@
 
 namespace gpio
 {
-    extern gpio& gpio_a;
-    extern gpio& gpio_b;
-    extern gpio& gpio_c;
-    extern gpio& gpio_d;
-    extern gpio& gpio_e;
-    extern gpio& gpio_h;
+    extern gpio& gpio_a_global;
+    extern gpio& gpio_b_global;
+    extern gpio& gpio_c_global;
+    extern gpio& gpio_d_global;
+    extern gpio& gpio_e_global;
+    extern gpio& gpio_h_global;
 } // namespace gpio

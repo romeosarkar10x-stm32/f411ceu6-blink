@@ -6,7 +6,6 @@
 
 #include "pin.hpp"
 
-
 namespace gpio
 {
     namespace registers
@@ -18,10 +17,10 @@ namespace gpio
         {
             enum type : u32
             {
-                GPIO_MODE_INPUT,
-                GPIO_MODE_GENERAL_PURPOSE_OUTPUT,
-                GPIO_MODE_ALTERNATE_FUNCTION,
-                GPIO_MODE_ANALOG
+                INPUT,
+                GENERAL_PURPOSE_OUTPUT,
+                ALTERNATE_FUNCTION,
+                ANALOG
             };
         }
 
@@ -34,9 +33,9 @@ namespace gpio
                 return static_cast<enum_gpio_mode::type>(get_bits<0x3u << (2 * _Pin)>(m_value));
             }
 
-            template <size_t _Pin> constexpr void set_mode(pin<_Pin> pin)
+            template <size_t _Pin> constexpr void set_mode(pin<_Pin> pin, enum_gpio_mode::type value)
             {
-                set_bits<(0x3u << (2 * _Pin))>(m_value, pin);
+                set_bits<(0x3u << (2 * _Pin))>(m_value, value);
             }
 
         private:

@@ -12,6 +12,7 @@ namespace rcc
     {
         constexpr rcc() {}
 
+        /* Clock control register */
         constexpr clock::clock_control_register& get_clock_control_register() { return m_clock_control_obj; }
 
         constexpr const clock::clock_control_register& get_clock_control_register() const
@@ -22,6 +23,90 @@ namespace rcc
         constexpr void set_clock_control_register(const clock::clock_control_register& value)
         {
             m_clock_control_obj = value;
+        }
+
+        /* PLL configuration register */
+        constexpr pll::pll_configuration_register& get_pll_configuration_register() { return m_pll_configuration_obj; }
+
+        constexpr const pll::pll_configuration_register& get_pll_configuration_register() const
+        {
+            return m_pll_configuration_obj;
+        }
+
+        /* Clock configuration register */
+        constexpr clock::clock_configuration_register& get_clock_configuration_register()
+        {
+            return m_clock_configuration_obj;
+        }
+        constexpr const clock::clock_configuration_register& get_clock_configuration_register() const
+        {
+            return m_clock_configuration_obj;
+        }
+
+        /* Clock interrupt register */
+        constexpr clock::clock_interrupt_register& get_clock_interrupt_register() { return m_clock_interrupt_obj; }
+
+        constexpr const clock::clock_interrupt_register& get_clock_interrupt_register() const
+        {
+            return m_clock_interrupt_obj;
+        }
+
+        /* AHB1 peripheral reset register */
+        constexpr peripheral_reset::ahb1_peripheral_reset_register& get_ahb1_peripheral_reset_register()
+        {
+            return m_ahb1_peripheral_reset_obj;
+        }
+
+        constexpr const peripheral_reset::ahb1_peripheral_reset_register& get_ahb1_peripheral_reset_register() const
+        {
+            return m_ahb1_peripheral_reset_obj;
+        }
+
+        /* AHB2 peripheral reset register */
+        constexpr peripheral_reset::ahb2_peripheral_reset_register& get_ahb2_peripheral_reset_register()
+        {
+            return m_ahb2_peripheral_reset_obj;
+        }
+
+        constexpr const peripheral_reset::ahb2_peripheral_reset_register& get_ahb2_peripheral_reset_register() const
+        {
+            return m_ahb2_peripheral_reset_obj;
+        }
+
+        /* APB2 peripheral peripheral reset register */
+        constexpr peripheral_reset::apb2_peripheral_reset_register& get_apb2_peripheral_reset_register()
+        {
+            return m_apb2_peripheral_reset_obj;
+        }
+
+        constexpr const peripheral_reset::apb2_peripheral_reset_register& get_apb2_peripheral_reset_register() const
+        {
+            return m_apb2_peripheral_reset_obj;
+        }
+
+        /* ABP1 peripheral reset register */
+        constexpr peripheral_reset::apb1_peripheral_reset_register& get_apb1_peripheral_reset_register()
+        {
+            return m_apb1_peripheral_reset_obj;
+        }
+
+        constexpr const peripheral_reset::apb1_peripheral_reset_register& get_apb1_peripheral_reset_register() const
+        {
+            return m_apb1_peripheral_reset_obj;
+        }
+
+        /* AHB1 peripheral clock enable register */
+        constexpr peripheral_clock_enable::ahb1_peripheral_clock_enable_register&
+
+        get_ahb1_peripheral_clock_enable_register()
+        {
+            return m_ahb1_peripheral_clock_enable_obj;
+        }
+
+        constexpr const peripheral_clock_enable::ahb1_peripheral_clock_enable_register&
+        get_ahb1_peripheral_clock_enable_register() const
+        {
+            return m_ahb1_peripheral_clock_enable_obj;
         }
 
         constexpr peripheral_clock_enable::ahb2_peripheral_clock_enable_register&
@@ -58,6 +143,15 @@ namespace rcc
         get_apb2_peripheral_clock_enable_register() const
         {
             return m_apb2_peripheral_clock_enable_obj;
+        }
+
+        constexpr backup_domain_control_register& get_backup_domain_control_register()
+        {
+            return m_backup_domain_control_obj;
+        }
+        constexpr const backup_domain_control_register& get_backup_domain_control_register() const
+        {
+            return m_backup_domain_control_obj;
         }
 
         constexpr clock::clock_control_and_status_register& get_clock_control_and_status_register()
@@ -152,83 +246,6 @@ namespace rcc
         u32 m_reserved7[1u];
 
         clock::dedicated_clocks_configuration_register m_dedicated_clocks_configuration_obj;
-
-        constexpr backup_domain_control_register& get_backup_domain_control_register()
-        {
-            return m_backup_domain_control_obj;
-        }
-        constexpr const backup_domain_control_register& get_backup_domain_control_register() const
-        {
-            return m_backup_domain_control_obj;
-        }
-
-        constexpr peripheral_clock_enable::ahb1_peripheral_clock_enable_register&
-        get_ahb1_peripheral_clock_enable_register()
-        {
-            return m_ahb1_peripheral_clock_enable_obj;
-        }
-        constexpr const peripheral_clock_enable::ahb1_peripheral_clock_enable_register&
-        get_ahb1_peripheral_clock_enable_register() const
-        {
-            return m_ahb1_peripheral_clock_enable_obj;
-        }
-
-        constexpr peripheral_reset::apb2_peripheral_reset_register& get_apb2_peripheral_reset_register()
-        {
-            return m_apb2_peripheral_reset_obj;
-        }
-        constexpr const peripheral_reset::apb2_peripheral_reset_register& get_apb2_peripheral_reset_register() const
-        {
-            return m_apb2_peripheral_reset_obj;
-        }
-
-        constexpr peripheral_reset::apb1_peripheral_reset_register& get_apb1_peripheral_reset_register()
-        {
-            return m_apb1_peripheral_reset_obj;
-        }
-        constexpr const peripheral_reset::apb1_peripheral_reset_register& get_apb1_peripheral_reset_register() const
-        {
-            return m_apb1_peripheral_reset_obj;
-        }
-
-        constexpr peripheral_reset::ahb2_peripheral_reset_register& get_ahb2_peripheral_reset_register()
-        {
-            return m_ahb2_peripheral_reset_obj;
-        }
-        constexpr const peripheral_reset::ahb2_peripheral_reset_register& get_ahb2_peripheral_reset_register() const
-        {
-            return m_ahb2_peripheral_reset_obj;
-        }
-
-        constexpr peripheral_reset::ahb1_peripheral_reset_register& get_ahb1_peripheral_reset_register()
-        {
-            return m_ahb1_peripheral_reset_obj;
-        }
-        constexpr const peripheral_reset::ahb1_peripheral_reset_register& get_ahb1_peripheral_reset_register() const
-        {
-            return m_ahb1_peripheral_reset_obj;
-        }
-
-        constexpr clock::clock_interrupt_register& get_clock_interrupt_register() { return m_clock_interrupt_obj; }
-        constexpr const clock::clock_interrupt_register& get_clock_interrupt_register() const
-        {
-            return m_clock_interrupt_obj;
-        }
-
-        constexpr clock::clock_configuration_register& get_clock_configuration_register()
-        {
-            return m_clock_configuration_obj;
-        }
-        constexpr const clock::clock_configuration_register& get_clock_configuration_register() const
-        {
-            return m_clock_configuration_obj;
-        }
-
-        constexpr pll::pll_configuration_register& get_pll_configuration_register() { return m_pll_configuration_obj; }
-        constexpr const pll::pll_configuration_register& get_pll_configuration_register() const
-        {
-            return m_pll_configuration_obj;
-        }
     };
 
 } // namespace rcc

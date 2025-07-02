@@ -6,7 +6,6 @@
 #include <blink/utilities/mask/mask.hpp>
 #include <blink/utilities/mask/set_bits.hpp>
 
-
 namespace rcc
 {
     namespace clock
@@ -61,7 +60,7 @@ namespace rcc
                 return static_cast<enum_enable::type>(get_bits<enum_mask::HIGH_SPEED_EXTERNAL_CLOCK_ENABLE>(m_value));
             }
 
-            constexpr void set_high_speed_external_clock_enable(enum_enable::type value) const noexcept
+            constexpr void set_high_speed_external_clock_enable(enum_enable::type value) noexcept
             {
                 set_bits<enum_mask::HIGH_SPEED_EXTERNAL_CLOCK_ENABLE>(m_value, value);
             }

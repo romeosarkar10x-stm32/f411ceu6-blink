@@ -8,8 +8,8 @@ namespace rcc
     {
         enum type : u32
         {
-            OFF,
-            ON,
+            DISABLE,
+            ENABLE,
         };
 
         constexpr enum_enable::type operator&(u32 a, enum_enable::type b)
@@ -23,6 +23,8 @@ namespace rcc
         }
 
     } // namespace enum_enable
+
+    using enum_enable_t = enum_enable::type;
 
     namespace enum_ready
     {
